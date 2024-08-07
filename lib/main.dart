@@ -40,5 +40,4 @@ class _CalculatorNormalHomeViewState extends State<CalculatorNormalHomeView> {
   }
 }
 
-// now it's working let's push it on github
-
+// let's try pushing from vs code, **Second Commit**
