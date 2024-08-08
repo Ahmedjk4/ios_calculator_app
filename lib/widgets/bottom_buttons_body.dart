@@ -38,7 +38,10 @@ class BottomButtonsBody extends StatelessWidget {
           OneCalculatorButton(
             color: const Color(0xffFF9F0A),
             text: "=",
-            callback: () {},
+            callback: () {
+              BlocProvider.of<AnswerCubit>(context)
+                  .calculateFinalResult(context);
+            },
           ),
         ],
       ),

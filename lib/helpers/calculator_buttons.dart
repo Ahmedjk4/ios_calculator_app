@@ -11,7 +11,7 @@ class CalculatorButtons {
     "%": {
       const Color(0xffA5A5A5): () {},
     },
-    "/": {
+    "÷": {
       const Color(0xffFF9F0A): () {},
     },
     "7": {

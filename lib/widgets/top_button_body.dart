@@ -31,6 +31,10 @@ class TopButtonsBody extends StatelessWidget {
                     if (CalculatorButtons.buttons.keys.toList()[index] ==
                         "AC") {
                       BlocProvider.of<AnswerCubit>(context).updateState("");
+                    } else if (CalculatorButtons.buttons.keys.toList()[index] ==
+                        "+/-") {
+                      BlocProvider.of<AnswerCubit>(context).updateState(
+                          "-${BlocProvider.of<AnswerCubit>(context).state}");
                     } else {
                       BlocProvider.of<AnswerCubit>(context).updateState(
                           "${BlocProvider.of<AnswerCubit>(context).state}${CalculatorButtons.buttons.keys.toList()[index]}");
