@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ios_calculator/cubits/cubit/answer_cubit.dart';
 
 class Answer extends StatelessWidget {
   const Answer({
@@ -17,13 +19,17 @@ class Answer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(
-              '0',
-              style: TextStyle(
-                fontSize: 72,
-                color: Colors.white,
-                // To-Do: Implement the same font weight in ios calculator
-              ),
+            BlocBuilder<AnswerCubit, String>(
+              builder: (context, state) {
+                return Text(
+                  state,
+                  style: TextStyle(
+                    fontSize: 72,
+                    color: Colors.white,
+                    // To-Do: Implement the same font weight in ios calculator
+                  ),
+                );
+              },
             )
           ],
         ),

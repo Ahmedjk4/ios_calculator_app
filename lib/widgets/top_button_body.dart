@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ios_calculator/cubits/cubit/answer_cubit.dart';
 import 'package:ios_calculator/helpers/calculator_buttons.dart';
 
 class TopButtonsBody extends StatelessWidget {
@@ -25,7 +27,15 @@ class TopButtonsBody extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    if (CalculatorButtons.buttons.keys.toList()[index] ==
+                        "AC") {
+                      BlocProvider.of<AnswerCubit>(context).updateState("");
+                    } else {
+                      BlocProvider.of<AnswerCubit>(context).updateState(
+                          "${BlocProvider.of<AnswerCubit>(context).state}${CalculatorButtons.buttons.keys.toList()[index]}");
+                    }
+                  },
                   borderRadius: BorderRadius.circular(50),
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
