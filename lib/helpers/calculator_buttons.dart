@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CalculatorButtons {
-static  final Map<String, Map<Color, VoidCallback>> buttons = {
+  static final Map<String, Map<Color, VoidCallback>> buttons = {
     "AC": {
       const Color(0xffA5A5A5): () {},
     },
@@ -48,18 +48,6 @@ static  final Map<String, Map<Color, VoidCallback>> buttons = {
       const Color(0xff333333): () {},
     },
     "+": {
-      const Color(0xffFF9F0A): () {},
-    },
-    "0": {
-      const Color(0xff333333): () {},
-    },
-    "*": {
-      const Color(0xff333333): () {},
-    },
-    ".": {
-      const Color(0xff333333): () {},
-    },
-    "=": {
       const Color(0xffFF9F0A): () {},
     },
   };
