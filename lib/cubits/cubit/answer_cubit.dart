@@ -11,10 +11,11 @@ class AnswerCubit extends Cubit<String> {
   void calculateFinalResult(BuildContext context) {
     try {
       var str = state;
-      str = state.replaceAll("x", "*");
-      str = state.replaceAll("÷", "/");
-      emit(eval(str).toString());
-    } on Exception catch (e) {
+      str = str.replaceAll(RegExp(r"x"), "*");
+      str = str.replaceAll(RegExp(r"÷"), "/");
+      final result = eval(str).toString();
+      emit(result);
+    } on Exception catch (_) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Invalid input"),
