@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ios_calculator/cubits/cubit/answer_cubit.dart';
+import 'package:ios_calculator/observers/simple_bloc_observer.dart';
 import 'widgets/all_buttons_body.dart';
 import 'widgets/answer_body.dart';
 import 'widgets/top_button_body.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
   runApp(const IosCalculator());
 }
 
@@ -12,9 +17,12 @@ class IosCalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: "HelveticaNeue"),
-      home: const CalculatorNormalHomeView(),
+    return BlocProvider(
+      create: (context) => AnswerCubit(),
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: "HelveticaNeue"),
+        home: const CalculatorNormalHomeView(),
+      ),
     );
   }
 }
